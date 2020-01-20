@@ -13,8 +13,11 @@ you can set the background color or text color with a query string
 |`color`|text color|
 |`bg`|background color|
 
+examples
 
 ```
+https://wallclock.onrender.com?color=eee
+https://wallclock.onrender.com?bg=386945
 https://wallclock.onrender.com?color=333333&bg=ffffff
 ```
 
