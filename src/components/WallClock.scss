@@ -1,0 +1,19 @@
+@import "meyer-reset";
+
+$color-sassy: #cc4397;
+$color-blue: #0059ff;
+
+.clockBackground {
+  background-color: $color-sassy;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clockText {
+  color: $color-blue;
+  font-size: 12vw;
+  width: 520px;
+  display: block;
+}

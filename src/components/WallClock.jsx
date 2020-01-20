@@ -1,9 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-// import style from "./WallClock.scss";
-const style = {
-  app: {}
-}
+import style from "./WallClock.scss";
+
 const getCurrentTime = () => {
   const tt = new Date();
   const h = tt.getHours();
@@ -35,8 +33,8 @@ export const WallClock = () => {
   }, [setTimer]);
 
   return (
-    <div className={style.app}>
-      <h1>{timer}</h1>
+    <div className={style.clockBackground}>
+      <h1 className={style.clockText}>{timer}</h1>
     </div>
   );
 };
