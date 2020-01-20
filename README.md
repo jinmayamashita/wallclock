@@ -23,5 +23,5 @@ https://wallclock.onrender.com?color=333333&bg=ffffff
 
 ## todos
 
-- [ ] types
-- [ ] tests
+- [ ] flow type definition
+- [ ] add component tests
