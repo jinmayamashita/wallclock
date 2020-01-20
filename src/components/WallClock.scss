@@ -1,19 +1,34 @@
 @import "meyer-reset";
+// @import url("https://fonts.googleapis.com/css?family=Geostar+Fill&display=swap");
 
-$color-sassy: #cc4397;
-$color-blue: #0059ff;
+// $default-color: #fff;
+// $default-background-color: #333;
 
 .clockBackground {
-  background-color: $color-sassy;
+  // color: $default-color;
+  // background-color: $default-background-color;
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  // font-family: "Geostar Fill", cursive;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  box-sizing: border-box;
 }
+
+.clock {
+  // width: 400px;
+  // height: 100px;
+  // overflow: hidden;
+}
+
 .clockText {
-  color: $color-blue;
-  font-size: 12vw;
-  width: 520px;
-  display: block;
+  font-size: 200px;
+  width: 820px;
+  margin: 0 auto;
 }
