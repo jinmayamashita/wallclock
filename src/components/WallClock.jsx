@@ -15,9 +15,9 @@ const getCurrentTime = () => {
   };
 };
 
-// TODO: colours are not the only hexadecimal colours
-const setColorStyle = p => ({ color: `#${p}` });
-const setBackgroundStyle = p => ({ backgroundColor: `#${p}` });
+const isHex = t => RegExp("^#", "g").test(t);
+const setColor = p => ({ color: isHex(p) ? p : `#${p}` });
+const setBackground = p => ({ backgroundColor: isHex(p) ? `${p}` : `#${p}` });
 
 const useQuery = () => new URLSearchParams(useLocation().search);
 
@@ -25,18 +25,24 @@ export const WallClock = () => {
   const [time, setTime] = React.useState(getCurrentTime());
   const q = useQuery();
 
-  const qColor = q.get("color") ?? "FFFFFF";
-  const qBg = q.get("bg") ?? "FFC000";
+  // default colors
+  const qColor = q.get("color") ?? "fffcf5";
+  const qBg = q.get("bg") ?? "e74960";
 
-  const color = setColorStyle(qColor);
-  const backgroundColor = setBackgroundStyle(qBg);
+  const callbackTime = React.useCallback(() => {
+    const t = getCurrentTime();
+    setTime(x => ({ ...x, ...t }));
+  }, [setTime]);
 
   React.useEffect(() => {
     const change = () => {
-      setTime(x => ({ ...x, ...getCurrentTime() }));
+      callbackTime();
     };
     setInterval(change, 1000);
-  }, [setTime]);
+  }, [callbackTime]);
+
+  const color = setColor(qColor);
+  const backgroundColor = setBackground(qBg);
 
   return (
     <div
