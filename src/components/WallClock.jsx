@@ -1,8 +1,10 @@
-import React from "react";
+// @flow
+import * as React from "react";
 import { useLocation } from "react-router-dom";
 import style from "./WallClock.scss";
 import { WallClockNumber } from "./WallClockNumber";
 
+// util
 const getCurrentTime = () => {
   const now = new Date();
   const hou = now.getHours();
@@ -19,15 +21,11 @@ const isHex = t => RegExp("^#", "g").test(t);
 const setColor = p => ({ color: isHex(p) ? p : `#${p}` });
 const setBackground = p => ({ backgroundColor: isHex(p) ? `${p}` : `#${p}` });
 
+// hooks
 const useQuery = () => new URLSearchParams(useLocation().search);
 
-export const WallClock = () => {
+const useTime = () => {
   const [time, setTime] = React.useState(getCurrentTime());
-  const q = useQuery();
-
-  // default colors
-  const qColor = q.get("color") ?? "fffcf5";
-  const qBg = q.get("bg") ?? "e74960";
 
   const callbackTime = React.useCallback(() => {
     const t = getCurrentTime();
@@ -35,11 +33,20 @@ export const WallClock = () => {
   }, [setTime]);
 
   React.useEffect(() => {
-    const change = () => {
-      callbackTime();
-    };
+    const change = () => callbackTime();
     setInterval(change, 1000);
   }, [callbackTime]);
+
+  return time;
+};
+
+export const WallClock: React.ComponentType<{}> = () => {
+  const q = useQuery();
+  const { hou, min, sec } = useTime();
+
+  // Default colors
+  const qColor = q.get("color") ?? "fffcf5";
+  const qBg = q.get("bg") ?? "e74960";
 
   const color = setColor(qColor);
   const backgroundColor = setBackground(qBg);
@@ -58,9 +65,9 @@ export const WallClock = () => {
             ...color
           }}
         >
-          <WallClockNumber number={time.hou} />:
-          <WallClockNumber number={time.min} />:
-          <WallClockNumber number={time.sec} />
+          <WallClockNumber number={hou} />:
+          <WallClockNumber number={min} />:
+          <WallClockNumber number={sec} />
         </p>
       </div>
     </div>
