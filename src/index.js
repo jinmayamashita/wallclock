@@ -1,3 +1,4 @@
+// @flow
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, useLocation } from "react-router-dom";
@@ -11,4 +12,5 @@ const App = () => (
   </Router>
 );
 
-ReactDOM.render(<App />, document.getElementById("app"));
+const DOMContainer = document.getElementById("app");
+if (DOMContainer !== null) ReactDOM.render(<App />, DOMContainer);

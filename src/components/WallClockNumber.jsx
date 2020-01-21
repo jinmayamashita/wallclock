@@ -1,7 +1,12 @@
-import React from "react";
+// @flow
+import * as React from "react";
 import style from "./WallClockNumber.scss";
 
-export const WallClockNumber = ({ number }) => {
+type Props = {|
+  number: string
+|}
+
+export const WallClockNumber: React.ComponentType<Props> = ({ number }) => {
   const [className, setClassName] = React.useState("");
   const preClockNumber = React.useRef(number);
 
