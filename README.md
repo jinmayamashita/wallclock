@@ -24,5 +24,5 @@ https://wallclock.onrender.com?color=333333&bg=ffffff
 ## todos
 
 - [x] flow type definition
-- [ ] add component tests
+- [x] add component tests
 - [ ] add circleCI workflows under the pull request checks
