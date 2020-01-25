@@ -1,7 +1,7 @@
 // @flow
 import * as React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import { WallClockNumber } from "./WallClockNumber";
+import { WallClockNumber } from "../WallClockNumber";
 
 describe("components/WallClockNumber", () => {
   describe("default", () => {
