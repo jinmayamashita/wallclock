@@ -1,7 +1,7 @@
 // @flow
 import * as React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import { WallClock } from "./WallClock";
+import { WallClock } from "../WallClock";
 import { MemoryRouter } from "react-router-dom";
 
 describe("components/WallClock", () => {
