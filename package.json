@@ -27,7 +27,7 @@
     "@testing-library/react-hooks": "3.2.1",
     "babel-jest": "25.1.0",
     "babel-loader": "8.0.6",
-    "css-loader": "3.4.2",
+    "css-loader": "3.5.3",
     "flow-bin": "0.118.0",
     "flow-typed": "3.0.0",
     "html-loader": "0.5.5",
