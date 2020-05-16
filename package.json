@@ -1,7 +1,7 @@
 {
   "name": "wallclock",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Simple clock wallpaper on browser",
   "main": "src/index.js",
   "scripts": {
     "dev": "webpack-dev-server --history-api-fallback --mode development",
